@@ -1,0 +1,19 @@
+{%include 'userheader.html'%}
+
+	<center>
+	<h1 style="color: #45b6fe">View News Categories</h1>
+	<br><br>
+		<table class="table" style="width: 400px">
+			<tr>
+				<th> <h5 style="color: #45b6fe">Category Name</h5></th>
+				<th> <h5 style="color: #45b6fe">Category Description</h5></th>
+			</tr>
+			{% for row in data['category'] %}
+			<tr>
+				<td style="color: #ffffff">{{ row['category_name'] }}</td>
+				<td style="color: #ffffff">{{ row['category_description'] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</center>
+{% include 'footer.html' %}

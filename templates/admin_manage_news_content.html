@@ -1,0 +1,71 @@
+{%include 'adminheader.html'%}
+<center>
+	<h1 style="color: #45b6fe">Manage News Content</h1><br><br>
+		<form method=post>
+			<table class="table" style="width: 800px">
+				
+				{% if data['upnews'] %}
+				<tr>
+					<th><h5 style="color: #45b6fe">News Categories</h5></th>
+					<td><select class="form-control" name="cname">
+						<option value="{{data['upnews'][0]['category_id']}}">{{data['upnews'][0]['category_name']}}</option>
+						{% for row in data['cat'] %}
+						<option value="{{row['category_id']}}">{{row['category_name']}}</option>
+						{% endfor %}
+					</select></td>
+				<tr>
+				</tr>
+					<th><h5 style="color: #45b6fe">Title</h5></th>
+					<td><input type="text" required class="form-control" placeholder="Enter Title..." name="title"{% if data['upnews'] %} value="{{data['upnews'][0]['Title']}}"{%endif%}></td>
+				</tr>
+				<tr>
+					<th><h5 style="color: #45b6fe">Description</h5></th>
+					<td><input type="text" required class="form-control" placeholder="Enter Description..." name="desc" value="{{data['upnews'][0]['Description']}}"></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" class="btn btn-info" name="update" value="UPDATE"></td>
+				</tr>
+				{% else %}
+				<tr>
+					<th><h5 style="color: #45b6fe">News Categories</h5></th>
+					<td><select class="form-control" name="cname">
+						<option>select</option>
+						{% for row in data['cat'] %}
+						<option value="{{row['category_id']}}">{{row['category_name']}}</option>
+						{% endfor %}
+					</select></td>
+				<tr>
+				</tr>
+					<th><h5 style="color: #45b6fe">Title</h5></th>
+					<td><input type="text" required class="form-control" placeholder="Enter Title..." name="title"{% if data['upnews'] %} value="{{data['upnews'][0]['Title']}}"{%endif%}></td>
+				</tr>
+				<tr>
+					<th><h5 style="color: #45b6fe">Description</h5></th>
+					<td><input type="textarea" required class="form-control" placeholder="Enter Description..." name="desc"></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" class="btn btn-info" name="submit" value="REGISTER"></td>
+				</tr>
+				{% endif %}
+			</table><br>
+			<h1 style="color: #45b6fe">News Content</h1><br><br>
+			<table class="table" style="width: 600px">
+				<tr>
+					<th> <h5 style="color: #45b6fe">Category Name</h5></th>
+					<th> <h5 style="color: #45b6fe">Title</h5></th>
+					<th> <h5 style="color: #45b6fe">Date</h5></th>
+					<th> <h5 style="color: #45b6fe">Description</h5></th>
+				</tr>
+				{% for row in data['content'] %}
+				<tr>
+					<td style="color: #ffffff">{{ row['category_name']}}</td>
+					<td style="color: #ffffff">{{ row['Title'] }}</td>
+					<td style="color: #ffffff">{{ row['Date'] }}</td>
+					<td style="color: #ffffff">{{ row['Description'] }}</td>
+					<td><a class="btn btn-danger" href="?action=delete&id={{ row['news_id'] }}">delete</a></td>
+					<td><a class="btn btn-success" href="?action=update&id={{ row['news_id'] }}">update</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</form></center>
+{% include 'footer.html' %}

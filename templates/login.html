@@ -1,0 +1,22 @@
+{% include ['heder.html']%}
+	<center>
+		<form method="post">
+	<h1 style="color: #45b6fe">LOGIN </h1>
+<br>
+	<table class="table" style="width: 400px">
+		<tr>
+			<th> <h5 style="color: #45b6fe">Username</h5></th>
+			<td><input type="text" required class="form-control" name="uname"></td>
+		</tr>
+		<tr>
+			<th><h5 style="color: #45b6fe">Password</h5></th>
+			<td><input type="password" required class="form-control" name="passw"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-info" name="login" value="LOGIN"></td>
+		</tr>
+	</table><br>
+	</form>
+</center>
+
+{% include 'footer.html' %}

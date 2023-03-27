@@ -1,0 +1,21 @@
+{%include 'userheader.html'%}
+
+	<center>
+	<h1 style="color: #45b6fe">View News Providers</h1>
+	<br><br>
+		<table class="table" style="width: 600px">
+				<tr>
+					<th> <h5 style="color: #45b6fe">Provider Name</h5></th>
+					<th> <h5 style="color: #45b6fe">Provider Contact</h5></th>
+					<th> <h5 style="color: #45b6fe">Description</h5></th>
+				</tr>
+				{% for row in data['pro'] %}
+				<tr>
+					<td style="color: #ffffff">{{ row['provider_name'] }}</td>
+					<td style="color: #ffffff">{{ row['provider_contact'] }}</td>
+					<td style="color: #ffffff">{{ row['description'] }}</td>
+				</tr>
+				{% endfor %}
+		</table>
+	</center>
+{% include 'footer.html' %}

@@ -1,0 +1,34 @@
+{% include ['userheader.html']%}
+
+
+<center>
+	<br><br>
+<h1 style="color: #45b6fe"> Upload File </h1><br><br>
+<form method="post" enctype="multipart/form-data">
+<table class="table" style="width: 800px;">
+	
+	<tr>
+		<td><h5 style="color: #45b6fe">Select First File</h5></td>
+		<td><input type="file" name="File1" ></td>
+	</tr>
+	<tr>
+		<td><h5 style="color: #45b6fe">Select Second File</h5></td>
+		<td><input type="file" name="File2" ></td>
+	</tr>
+	<tr> 
+		<td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="upld" value="Check"></td>
+	</tr>
+
+
+
+	<tr>
+		<td><br><br><br><br><br><h5 style="color: #45b6fe">View Summerized Details</h5></td>
+		<td><textarea style="width:400px; height:200px;" name="summerize" class="form-control">{{data['details']}}</textarea></td>
+		<td><input type="submit" name="submit" value="voice out" class="btn btn-success"></td>
+	</tr>
+</table>
+</form>
+
+</center>
+<br><br>
+{% include 'footer.html' %}

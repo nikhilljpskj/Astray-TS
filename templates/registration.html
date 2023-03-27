@@ -1,0 +1,44 @@
+{% include ['heder.html']%}
+	<center>
+	<h1 style="color: #45b6fe">REGISTRATION FORM</h1><br>	<br>
+		<form method="POST">
+		<table class="table" style="width: 400px">
+			<tr>
+				<th><h5 style="color: #45b6fe">First Name</h5></th>
+				<td><input type="text" required class="form-control" name="fname" pattern="[a-zA-Z]{0,10}"></td>
+			</tr>
+
+			<tr>
+				<th><h5 style="color: #45b6fe">Last Name</h5></th>
+				<td><input type="text" required class="form-control" name="lname" pattern="[a-zA-Z]{0,10}"></td>
+		
+			<tr>
+				<th align="left align=left"><h5 style="color: #45b6fe">Phone Number</h5></th>
+				<td><input type="text" required class="form-control" name="phno" pattern="[0-9]{10}"></td>
+			</tr>
+			<tr>
+				<th align=left><h5 style="color: #45b6fe">Email ID</h5></th>
+				<td><input type="Email" required class="form-control" name="mail"></td>
+			</tr>
+			<tr>
+				<th><h5 style="color: #45b6fe">Place</h5></th>
+				<td><input type="text" required class="form-control" name="place"></td>
+			</tr>
+			<tr>
+				<th><h5 style="color: #45b6fe">Username</h5></th>
+				<td><input type="text" required class="form-control" name="uname"></td>
+			</tr>
+			<tr>
+				<th><h5 style="color: #45b6fe">Password</h5></th>
+				<td><input type="password" required class="form-control" name="passw"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" class="btn btn-info" name="submit" value="SUBMIT "></td>
+			</tr>
+			
+		</table>
+		</form>
+	</center>
+
+
+{% include 'footer.html' %}

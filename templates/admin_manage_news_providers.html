@@ -1,0 +1,51 @@
+{%include 'adminheader.html'%}
+<center>
+	<h1 style="color: #45b6fe">Manage News Providers</h1><br><br>
+		<form method="post">
+			<table class="table" style="width: 800px">
+				<tr>
+					<th><h5 style="color: #45b6fe">Provider name</h5></th>
+					<td><input type="text" required class="form-control" placeholder="Enter Name..." name="pname" {% if data['uppro'] %} value="{{data['uppro'][0]['provider_name']}}"{%endif%}></td>
+				</tr>
+				<tr>
+					<th><h5 style="color: #45b6fe">Provider Contact</h5></th>
+					<td><input type="number" required class="form-control" placeholder="Enter Number..." name="pcontact"  {% if data['uppro'] %} value="{{data['uppro'][0]['provider_contact']}}"{%endif%}></td>
+				</tr>
+				{% if data['uppro'] %}
+				<tr>
+					<th><h5 style="color: #45b6fe">Description</h5></th>
+					<td><textarea name="description">{{data['uppro'][0]['description']}}</textarea></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="update" value="UPDATE"></td>
+				</tr>
+				{% else %}
+				<tr>
+					<th><h5 style="color: #45b6fe">Description</h5></th>
+					<td><textarea class="form-control" placeholder="Enter description..." name="description"></textarea></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" class="btn btn-info" name="submit" value="REGISTER"></td>
+				</tr>
+				{% endif %}
+			</table>
+			<br><br>
+			<h2 style="color: #45b6fe">News Providers</h2>
+			<table class="table" style="width: 600px">
+				<tr>
+					<th><h5 style="color: #45b6fe">Provider Name</h5></th>
+					<th><h5 style="color: #45b6fe">Provider Contact</h5></th>
+					<th><h5 style="color: #45b6fe">Description</h5></th>
+				</tr>
+				{% for row in data['pro'] %}
+				<tr>
+					<td style="color: #ffffff">{{ row['provider_name'] }}</td>
+					<td style="color: #ffffff">{{ row['provider_contact'] }}</td>
+					<td style="color: #ffffff">{{ row['description'] }}</td>
+					<td><a class="btn btn-danger" href="?action=delete&id={{ row['provider_id'] }}">delete</a></td>
+					<td><a class="btn btn-success" href="?action=update&id={{ row['provider_id'] }}">update</a></td>
+				</tr>
+				{% endfor %}
+			</table><br><br>
+		</form></center>
+{% include 'footer.html' %}

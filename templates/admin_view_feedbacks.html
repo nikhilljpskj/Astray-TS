@@ -1,0 +1,32 @@
+{% include ['adminheader.html']%}
+
+
+
+
+<center>
+	<br><br>
+<h1 style="color: #45b6fe">Feedbacks</h1><br><br>
+<form method="post">
+<table class="table" style="width: 800px">
+	
+	<tr>
+		<th><h5 style="color: #45b6fe">Sl no</h5></th>
+		<th><h5 style="color: #45b6fe">User</h5></th>
+		<th><h5 style="color: #45b6fe">Feedback</h5></th>
+		<th><h5 style="color: #45b6fe">Date</h5></th>
+	</tr>
+	{% for row in data['feedbacks'] %}
+	<tr>
+		<td style="color: #ffffff">{{loop.index}}</td>
+		<td style="color: #ffffff">{{row['first_name']}}{{row['last_name']}}</td>
+		<td style="color: #ffffff">{{row['feedback']}}</td>
+		<td style="color: #ffffff">{{row['date']}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</form>
+
+
+</center>
+<br><br><br>
+{% include 'footer.html' %}

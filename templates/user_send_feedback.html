@@ -1,0 +1,34 @@
+{%include 'userheader.html'%}
+
+	<center>
+		<form method="post">
+	<h1 style="color: #45b6fe" class="table">Send Feedback</h1>
+	<br><br>
+		<table class="table" style="width: 600px">
+			<tr>
+				<th><br><h5 style="color: #45b6fe">Feedback</h5></th>				
+				<td><textarea required class="form-control" name="feedback"  required="" placeholder="Your message here..."></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-info" name="submit"></td>
+			</tr>
+		</table>
+		<table style="width: 500px;" class="table">
+			<h1 style="color: #45b6fe">Feedbacks</h1>
+			<br><br><br>
+			<tr>
+				<th><h5 style="color: #45b6fe">Sl No</h5></th>
+				<th><h5 style="color: #45b6fe">Feedaback</h5></th>
+				<th><h5 style="color: #45b6fe">Date</h5></th>
+			</tr>
+			{% for row in data['feedback'] %}
+			<tr>
+				<th style="color: #ffffff">{{loop.index}}</th>
+				<th style="color: #ffffff">{{row['feedback']}}</th>
+				<th style="color: #ffffff">{{row['date']}}</th>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+	</center>
+{% include 'footer.html' %}
